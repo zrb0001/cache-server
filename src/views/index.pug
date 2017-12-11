@@ -1,0 +1,48 @@
+extends __layout.pug
+
+block head
+  title 首页
+  style(type='text/css').
+    section {
+      display: flex;
+    }
+    section > div {
+      margin-right: 28px;
+      min-width: 250px;
+    }
+
+block body
+  h2 实验田
+  a(href="/static") 浏览器默认行为
+  section
+    div
+      h3 HTTP 1.0
+      ul
+        li: a(href="/v1.0/1/static") Expires 服务端：心好累，我想静静
+        li: a(href="/v1.0/2/static") Pragma 服务端：孙贼，都别给我缓存
+    div
+      h3 HTTP 1.1
+
+      h4 基于时间
+      ul
+        li: a(href="/v1.1/1/static") MaxAge=10 为你的人生续10秒
+
+      h4 基于特征
+      ul
+        li: a(href="/v1.1/3/static") Etag 爸爸说继承家业前先验一下DNA
+        li: a(href="/v1.1/4/static") Etag 爸爸说继承家业前先验一下DNA X2
+
+      h4 都老实点
+      ul
+        li: a(href="/v1.1/997/static") MaxAge=0 我是无缓存
+        li: a(href="/v1.1/998/static") no-cache 我说我是无缓存你信不
+        li: a(href="/v1.1/999/static") no-store 楼上滚粗，我才是无缓存
+    div
+      h3 代理服务器
+      ul
+        li: a(href="http://localhost:6001/proxy/1/static") 公有
+        li: a(href="http://localhost:6001/proxy/2/static") 私有
+        li: a(href="http://localhost:6001/proxy/3/static") 又是我，no-store
+        //li: a(href="http://localhost:6001/proxy/4/static") 管家，请帮我验下DNA
+        //li: a(href="http://localhost:6001/proxy/5/static") 管家，请找我爸验下DNA
+        li: a(href="http://localhost:6001/proxy/6/static") no-cache
